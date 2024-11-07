@@ -1,0 +1,225 @@
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touccan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <img src="./Logo titulo (1).png" alt="Logo Touccan">
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="cards-panel">
+            <div class="card" id="account-info" onclick="toggleAccountInfo()">
+                <div class="card-detail"></div>
+                <div class="card-content">
+                    <i class="fas fa-info-circle card-icon"></i>
+                    <div>
+                        <div class="card-title">Informações da conta</div>
+                        <div class="card-description">Veja as informações da conta, como telefone e endereço de e-mail</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="security-card" onclick="toggleSecuritySettings()">
+                <div class="card-detail"></div>
+                <div class="card-content">
+                    <i class="fas fa-lock card-icon"></i>
+                    <div>
+                        <div class="card-title">Segurança</div>
+                        <div class="card-description">Gerencie a segurança da sua conta</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="support-card" onclick="toggleSupport()">
+                <div class="card-detail"></div>
+                <div class="card-content">
+                    <i class="fas fa-headset card-icon"></i>
+                    <div>
+                        <div class="card-title">Suporte</div>
+                        <div class="card-description">Entre em contato conosco de qualquer lugar</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="about-us-card" onclick="toggleAboutUs()">
+                <div class="card-detail"></div>
+                <div class="card-content">
+                    <img src="./logo - preto (1).png" alt="Sobre Nós" class="card-icon">
+                    <div>
+                        <div class="card-title">Sobre Nós</div>
+                        <div class="card-description">Veja algumas informações sobre nossa comunidade</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="image-panel" id="image-panel">
+            <img src="./logo - preto (2).png" alt="Descrição da Imagem" class="logo-image">
+            <div class="image-description">O que deseja acessar?</div>
+        </div>
+
+        <div class="account-details" id="account-details" style="display: none;">
+            <h2 class="account-title">Informações da Conta</h2>
+            <div class="account-card">
+                <div class="info">
+                    <div class="info-title">Nome do Usuário:</div>
+                    <div class="info-value">Maria Silva</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">Celular:</div>
+                    <div class="info-value">1166666-6666</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">E-mail:</div>
+                    <div class="info-value">mariaSilva@gmail.com</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">CEP:</div>
+                    <div class="info-value">00000-000</div>
+                </div>
+             
+             <button class="button-exit" onclick="logout()">Sair</button>
+
+            </div>
+        </div>
+
+        <div class="security-settings" id="security-settings" style="display: none;">
+            <h2 class="account-title">Segurança</h2>
+            <div class="account-card">
+                <div class="security-form">
+                    <div class="info">
+                        <div class="info-title">Senha Atual:</div>
+                        <input type="password" placeholder="Escreva sua senha atual" />
+                    </div>
+                    <div class="info">
+                        <div class="info-title">Nova Senha:</div>
+                        <input type="password" placeholder="Pelo menos 8 caracteres" />
+                    </div>
+                    <div class="info">
+                        <div class="info-title">Confirmar Senha:</div>
+                        <input type="password" placeholder="Pelo menos 8 caracteres" />
+                    </div>
+                    <button class="logout-button" onclick="updatePassword()">Atualizar Senha</button>
+                    <div class="forgot-password">
+                        <a href="#">Esqueceu a senha?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="support-panel" id="support-panel" style="display: none;">
+            <h2 class="account-title">Suporte</h2>
+            <div class="account-card">
+                <div class="contato">E-mail pra contato</div>
+                <div class="info-value">contato.touccan@gmail.com</div>
+                <div class="info-title">Encontrou algum problema? reporte para nós</div>
+                
+                <textarea id="support-message" maxlength="500" rows="4" placeholder="Digite sua mensagem aqui..."></textarea>
+                <div class="character-count" id="character-count">0/500 caracteres</div>
+                <button id="send-report" class="send-button">Enviar Reporte</button>
+            </div>
+        </div>
+
+        <div class="about-us" id="about-us" style="display: none;">
+            <h2 class="account-title">Sobre Nós</h2>
+            <div class="account-card">
+                <div class="sub-title">Quem Somos</div>
+                <div class="info-value">Touccan é uma forma inovadora de conectar pessoas que precisam de empregos temporários de alta remuneração a alguém que precisa de serviços de curto prazo e eficientes. Nossa plataforma permite que as pessoas realizem suas tarefas e contrate-as, com foco naqueles que precisam apenas por um curto período. Nosso objetivo de negócio é simplificar a procura de empregos temporários e contratação de temporários.</div>
+                <div class="sub-title">Nossa Missão</div>
+                <div class="info-value">Nossa missão é simplificar o processo de emprego e contratação, tornando-o ágil e acessível. Acreditamos que todos devem ter a oportunidade de encontrar trabalho que se ajuste às suas necessidades e que os empregadores merecem acesso rápido a profissionais qualificados para serviços temporários.</div>
+            </div>
+        </div>
+
+       
+    <script>
+        let isPremium = false; // Estado inicial
+
+        function toggleAccountInfo() {
+            const accountDetails = document.getElementById('account-details');
+            const imagePanel = document.getElementById('image-panel');
+            const securitySettings = document.getElementById('security-settings');
+            const supportPanel = document.getElementById('support-panel');
+            const aboutUs = document.getElementById('about-us');
+            const premiumPanel = document.getElementById('premium-panel');
+
+            accountDetails.style.display = accountDetails.style.display === 'none' || accountDetails.style.display === '' ? 'block' : 'none';
+            imagePanel.style.display = accountDetails.style.display === 'block' ? 'none' : 'flex';
+            securitySettings.style.display = 'none';
+            supportPanel.style.display = 'none';
+            aboutUs.style.display = 'none';
+            premiumPanel.style.display = 'none';
+        }
+
+        function toggleSecuritySettings() {
+            const securitySettings = document.getElementById('security-settings');
+            const imagePanel = document.getElementById('image-panel');
+            const accountDetails = document.getElementById('account-details');
+            const supportPanel = document.getElementById('support-panel');
+            const aboutUs = document.getElementById('about-us');
+            const premiumPanel = document.getElementById('premium-panel');
+
+            securitySettings.style.display = securitySettings.style.display === 'none' || securitySettings.style.display === '' ? 'block' : 'none';
+            imagePanel.style.display = securitySettings.style.display === 'block' ? 'none' : 'flex';
+            accountDetails.style.display = 'none';
+            supportPanel.style.display = 'none';
+            aboutUs.style.display = 'none';
+            premiumPanel.style.display = 'none';
+        }
+
+        function toggleSupport() {
+            const supportPanel = document.getElementById('support-panel');
+            const imagePanel = document.getElementById('image-panel');
+            const accountDetails = document.getElementById('account-details');
+            const securitySettings = document.getElementById('security-settings');
+            const aboutUs = document.getElementById('about-us');
+            const premiumPanel = document.getElementById('premium-panel');
+
+            supportPanel.style.display = supportPanel.style.display === 'none' || supportPanel.style.display === '' ? 'block' : 'none';
+            imagePanel.style.display = supportPanel.style.display === 'block' ? 'none' : 'flex';
+            accountDetails.style.display = 'none';
+            securitySettings.style.display = 'none';
+            aboutUs.style.display = 'none';
+            premiumPanel.style.display = 'none';
+        }
+
+        function toggleAboutUs() {
+            const aboutUs = document.getElementById('about-us');
+            const imagePanel = document.getElementById('image-panel');
+            const accountDetails = document.getElementById('account-details');
+            const securitySettings = document.getElementById('security-settings');
+            const supportPanel = document.getElementById('support-panel');
+            const premiumPanel = document.getElementById('premium-panel');
+
+            aboutUs.style.display = aboutUs.style.display === 'none' || aboutUs.style.display === '' ? 'block' : 'none';
+            imagePanel.style.display = aboutUs.style.display === 'block' ? 'none' : 'flex';
+            accountDetails.style.display = 'none';
+            securitySettings.style.display = 'none';
+            supportPanel.style.display = 'none';
+            premiumPanel.style.display = 'none';
+        }
+
+       
+           
+        function logout() {
+            // Lógica de logout
+            alert("Você foi desconectado.");
+        }
+
+        function updatePassword() {
+            // Lógica para atualizar a senha
+            alert("Senha atualizada com sucesso.");
+        }
+    </script>
+</body>
+</html> 
